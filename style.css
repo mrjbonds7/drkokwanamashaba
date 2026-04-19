@@ -458,20 +458,19 @@ img {
 .add-to-cart {
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     position: relative;
     overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
 }
 
 .add-to-cart::before {
@@ -1062,6 +1061,20 @@ img {
         text-align: center;
         padding-left: 0;
         padding-right: 0;
+    }
+}
+
+@media (max-width: 428px) {
+    .product-card .add-to-cart,
+    .product-card .product-button {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+
+    .product-card .product-button {
+        margin-bottom: 0;
     }
 }
 
