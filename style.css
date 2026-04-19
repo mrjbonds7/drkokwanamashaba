@@ -1030,6 +1030,41 @@ img {
     }
 }
 
+@media (max-width: 412px) {
+    .product-detail {
+        padding: 2.5rem 1rem;
+    }
+
+    .product-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .product-image {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+    }
+
+    .product-info {
+        padding: 1.8rem;
+    }
+
+    .product-info p {
+        font-size: 1rem;
+        margin-bottom: 1.6rem;
+    }
+
+    .back-button,
+    .youtube-link,
+    .add-to-cart {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 @media (min-width: 769px) {
     .nav-menu {
         display: flex !important;
