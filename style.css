@@ -1065,17 +1065,6 @@ img {
 }
 
 @media (max-width: 428px) {
-    .product-card .add-to-cart,
-    .product-card .product-button {
-        display: block;
-        width: 100%;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-
-    .product-card .product-button {
-        margin-bottom: 0;
-    }
 }
 
 @media (min-width: 769px) {
