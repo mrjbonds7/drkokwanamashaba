@@ -471,6 +471,7 @@ img {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    margin-right: 1rem;
 }
 
 .add-to-cart::before {
