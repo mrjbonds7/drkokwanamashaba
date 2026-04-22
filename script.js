@@ -230,6 +230,33 @@ const Cart = {
     }
 };
 
+const ContactForm = {
+    whatsappNumber: '27795255211',
+    init() {
+        const form = document.querySelector('.contact-form');
+        if (!form) return;
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            this.sendMessage();
+        });
+    },
+    sendMessage() {
+        const name = document.getElementById('contact-name')?.value.trim();
+        const phone = document.getElementById('contact-phone')?.value.trim();
+        const message = document.getElementById('contact-message')?.value.trim();
+
+        if (!name || !phone || !message) {
+            alert('Please fill in your name, phone number, and message before sending.');
+            return;
+        }
+
+        const formattedMessage = `Hello Prof Kokwana Mashaba, my name is ${name}. My phone number is ${phone}. I would like to inquire about: ${message}`;
+        const encoded = encodeURIComponent(formattedMessage);
+        const whatsappUrl = `https://wa.me/${this.whatsappNumber}?text=${encoded}`;
+        window.open(whatsappUrl, '_blank');
+    }
+};
+
 // =====================================================
 // 6. APP INITIALIZATION
 // =====================================================
