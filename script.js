@@ -277,6 +277,7 @@ const App = {
         Animations.init();
         Products.init();
         Cart.init();
+        ContactForm.init();
     }
 };
 
