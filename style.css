@@ -578,6 +578,29 @@ img {
     color: var(--primary-color);
 }
 
+.hours-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hours-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hours-list li:last-child {
+    border-bottom: none;
+}
+
+.hours-list li strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -1053,6 +1076,12 @@ img {
     .whatsapp-icon {
         width: 26px;
         height: 26px;
+    }
+
+    .hours-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
     }
 }
 
