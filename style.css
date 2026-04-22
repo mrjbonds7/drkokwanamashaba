@@ -496,7 +496,8 @@ img {
 }
 
 /* YouTube Link */
-.youtube-link {
+.youtube-link,
+.tiktok-link {
     display: inline-block;
     color: var(--accent-color);
     text-decoration: none;
@@ -508,7 +509,8 @@ img {
     margin-bottom: 1rem;
 }
 
-.youtube-link:hover {
+.youtube-link:hover,
+.tiktok-link:hover {
     background-color: var(--accent-color);
     color: var(--white);
     transform: translateY(-2px);
@@ -1057,6 +1059,7 @@ img {
 
     .back-button,
     .youtube-link,
+    .tiktok-link,
     .add-to-cart {
         width: 100%;
         text-align: center;
