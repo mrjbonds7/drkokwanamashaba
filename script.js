@@ -232,28 +232,115 @@ const Cart = {
 
 const ContactForm = {
     whatsappNumber: '27795255211',
+    
+    // Input validation patterns
+    patterns: {
+        name: /^[a-zA-Z\s'-]{2,50}$/,
+        phone: /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/,
+        message: /^[a-zA-Z0-9\s.,!?'-]{5,500}$/
+    },
+
+    // Sanitize input to prevent XSS
+    sanitizeInput(input) {
+        const div = document.createElement('div');
+        div.textContent = input;
+        return div.innerHTML;
+    },
+
+    // Validate individual fields
+    validateField(field, pattern) {
+        if (!pattern.test(field)) {
+            return false;
+        }
+        return true;
+    },
+
     init() {
         const form = document.querySelector('.contact-form');
         if (!form) return;
+        
+        // Set up form submission
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             this.sendMessage();
         });
+
+        // Add real-time validation feedback
+        const nameInput = document.getElementById('contact-name');
+        const phoneInput = document.getElementById('contact-phone');
+        const messageInput = document.getElementById('contact-message');
+
+        if (nameInput) nameInput.addEventListener('blur', () => this.validateName(nameInput));
+        if (phoneInput) phoneInput.addEventListener('blur', () => this.validatePhone(phoneInput));
+        if (messageInput) messageInput.addEventListener('blur', () => this.validateMessage(messageInput));
     },
+
+    validateName(input) {
+        if (!this.validateField(input.value.trim(), this.patterns.name)) {
+            input.classList.add('invalid');
+            return false;
+        }
+        input.classList.remove('invalid');
+        return true;
+    },
+
+    validatePhone(input) {
+        if (!this.validateField(input.value.trim(), this.patterns.phone)) {
+            input.classList.add('invalid');
+            return false;
+        }
+        input.classList.remove('invalid');
+        return true;
+    },
+
+    validateMessage(input) {
+        if (!this.validateField(input.value.trim(), this.patterns.message)) {
+            input.classList.add('invalid');
+            return false;
+        }
+        input.classList.remove('invalid');
+        return true;
+    },
+
     sendMessage() {
         const name = document.getElementById('contact-name')?.value.trim();
         const phone = document.getElementById('contact-phone')?.value.trim();
         const message = document.getElementById('contact-message')?.value.trim();
 
+        // Validate all fields
         if (!name || !phone || !message) {
-            alert('Please fill in your name, phone number, and message before sending.');
+            alert('Please fill in all fields before sending.');
             return;
         }
 
-        const formattedMessage = `Hello Prof Kokwana Mashaba, my name is ${name}. My phone number is ${phone}. I would like to inquire about: ${message}`;
+        if (!this.validateField(name, this.patterns.name)) {
+            alert('Please enter a valid name (2-50 characters, letters and spaces only).');
+            return;
+        }
+
+        if (!this.validateField(phone, this.patterns.phone)) {
+            alert('Please enter a valid phone number.');
+            return;
+        }
+
+        if (!this.validateField(message, this.patterns.message)) {
+            alert('Message must be 5-500 characters and contain only letters, numbers, and basic punctuation.');
+            return;
+        }
+
+        // Sanitize inputs to prevent XSS
+        const sanitizedName = this.sanitizeInput(name);
+        const sanitizedPhone = this.sanitizeInput(phone);
+        const sanitizedMessage = this.sanitizeInput(message);
+
+        const formattedMessage = `Hello Prof Kokwana Mashaba, my name is ${sanitizedName}. My phone number is ${sanitizedPhone}. I would like to inquire about: ${sanitizedMessage}`;
         const encoded = encodeURIComponent(formattedMessage);
         const whatsappUrl = `https://wa.me/${this.whatsappNumber}?text=${encoded}`;
-        window.open(whatsappUrl, '_blank');
+        
+        // Use feature detection and secure window opening
+        if (window.open) {
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
     }
 };
 

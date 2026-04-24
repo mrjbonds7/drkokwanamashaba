@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://wa.me; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://wa.me; frame-ancestors 'none'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
     <title>Prof Kokwana Mashaba - Herbalist</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" integrity="sha384-" crossorigin="anonymous">
 </head>
 <body>
     <!-- Navigation -->
@@ -34,8 +41,9 @@
         <div class="hero-content">
             <h1>Prof Kokwana Mashaba</h1>
             <p class="subtitle">Traditional Herbalist & Natural Healing Practitioner</p>
+            <p class="translation">Zulu: Umelaphi Wemithi Yesintu Nomhlinzeki Wokwelapha Ngokwemvelo | Sotho: Ngaka ea Semela ea Setso le Setsebi sa Kalafo ea Tlhaho</p>
             <p class="hero-tagline">Empowering health through nature's remedies</p>
-            <a href="#services" class="cta-button">Explore Services</a>
+            <p class="translation">Zulu: Ukwenza impilo yakho ibe namandla ngezindlela zemvelo zokwelapha | Sotho: Ho matlafatsa bophelo ka kalafo ea tlhaho ea semela</p>
         </div>
     </section>
 
@@ -66,6 +74,7 @@
     <section id="services" class="services">
         <div class="container">
             <h2>Services</h2>
+            <p class="translation">Zulu: Izinsiza | Sotho: Litšebeletso</p>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Herbal Consultation</h3>
@@ -99,7 +108,9 @@
     <section id="products" class="products">
         <div class="container">
             <h2>Herbal Products</h2>
+            <p class="translation">Zulu: Imikhiqizo Yemithi Yesintu | Sotho: Lihlahisoa tsa Semela</p>
             <p class="products-intro">Discover our range of premium herbal remedies, carefully crafted using traditional methods and the finest natural ingredients.</p>
+            <p class="translation">Zulu: Thola imikhiqizo yethu yemithi yesintu ekhethekile, elungiselelwe ngokucophelela ngezindlela zendabuko nezithako zemvelo ezisezingeni eliphakeme. | Sotho: Fumana lihlahisoa tsa rona tsa semela tse phahameng, li entsoe ka hloko ka mekhoa ea setso le metsoako ea tlhaho e ntle ka ho fetisisa.</p>
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
@@ -107,6 +118,7 @@
                     </div>
                     <h3>Immune Boost Tincture</h3>
                     <p>A powerful blend of echinacea, elderberry, and medicinal mushrooms to strengthen your body's natural defenses.</p>
+                    <p class="translation">Zulu: Ukuxubana okunamandla kwe-echinacea, elderberry kanye nama-mushroom wezokwelapha ukuqinisa imizimba yakho. | Sotho: Motsoako o matla oa echinacea, elderberry le mushroom tsa kalafo ho matlafatsa tshireletso ya mmele wa hao.</p>
                     <a href="immune-boost-tincture.html" class="product-button" target="_self">Learn More</a>
                     <button class="add-to-cart" data-product="Immune Boost Tincture">Add to Cart</button>
                 </div>
@@ -116,6 +128,7 @@
                     </div>
                     <h3>Stress Relief Tea</h3>
                     <p>Calming herbal tea with chamomile, lemon balm, and passionflower to promote relaxation and reduce anxiety.</p>
+                    <p class="translation">Zulu: Itiye elizolisa ngomuthi we-chamomile, lemon balm, kanye ne-passionflower ukuzwakalisa ukuphumula. | Sotho: Tee e khutsitsang ka chamomile, lemon balm le passionflower ho susumetsa phomolo le ho fokotsa khatello.</p>
                     <a href="stress-relief-tea.html" class="product-button">Learn More</a>
                     <button class="add-to-cart" data-product="Stress Relief Tea">Add to Cart</button>
                 </div>
@@ -125,6 +138,7 @@
                     </div>
                     <h3>Digestive Health</h3>
                     <p>Natural digestive support with ginger, peppermint, and fennel to soothe digestion and promote gut health.</p>
+                    <p class="translation">Zulu: Ukusekelwa kwemvelo kokugaya ukudla nge-ginger, peppermint kanye no-fennel ukuhlalisa isoze nezisu. | Sotho: Tšehetso ea tlhaho bakeng sa tsheko ea dijo ka ginger, peppermint le fennel ho khutsisa tsheko le bophelo bo botle ba mala.</p>
                     <a href="digestive-health.html" class="product-button" target="_self">Learn More</a>
                     <button class="add-to-cart" data-product="Digestive Health">Add to Cart</button>
                 </div>
@@ -197,7 +211,7 @@
                         <p><a href="https://wa.me/27795255211" target="_blank" aria-label="Message on WhatsApp">+27 (0)79 52 55 211</a></p>
                     </div>
                     <div class="info-item">
-                        <h3>🎵 TikTok</h3>
+                        <h3><img src="https://img.icons8.com/color/24/000000/tiktok.png" alt="TikTok" aria-hidden="true"> TikTok</h3>
                         <p><a href="https://www.tiktok.com/@kokwanamashaba" target="_blank" aria-label="Visit TikTok">@kokwanamashaba</a></p>
                     </div>
                     <div class="info-item">
@@ -213,10 +227,10 @@
                         </ul>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input id="contact-name" type="text" placeholder="Your Name" required aria-label="Your Name">
-                    <input id="contact-phone" type="tel" placeholder="Your Phone Number" required aria-label="Your Phone Number">
-                    <textarea id="contact-message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
+                <form class="contact-form" novalidate>
+                    <input id="contact-name" type="text" placeholder="Your Name" required aria-label="Your Name" maxlength="50" pattern="[a-zA-Z\s'-]{2,50}" title="Name should contain letters, spaces, hyphens or apostrophes only">
+                    <input id="contact-phone" type="tel" placeholder="Your Phone Number" required aria-label="Your Phone Number" maxlength="20" pattern="[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}" title="Please enter a valid phone number">
+                    <textarea id="contact-message" placeholder="Your Message" rows="5" required aria-label="Your Message" maxlength="500" minlength="5" title="Message must be between 5 and 500 characters"></textarea>
                     <button type="submit" class="submit-button">Send Message via WhatsApp</button>
                 </form>
             </div>
@@ -239,5 +253,13 @@
     </a>
 
     <script src="script.js"></script>
+        <footer class="footer">
+        <div class="container">
+            <p>© 2026 Prof Kokwana Mashaba Herbalist (Pty) Ltd. All rights reserved.</p>
+            <p>Designed for local herbal wellness and community care.</p>
+            <p>Website developed by mrjbonds7.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

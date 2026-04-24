@@ -1,0 +1,113 @@
+# Security Headers & Configuration for Prof K. Mashaba Website
+# Apache Server Configuration (.htaccess)
+
+# ============================================
+# 1. ENABLE HTTPS / SSL ENFORCEMENT
+# ============================================
+# Redirect all HTTP traffic to HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ============================================
+# 2. SECURITY HEADERS
+# ============================================
+
+# Prevent content type sniffing
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Clickjacking protection
+    Header always set X-Frame-Options "DENY"
+    
+    # XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://wa.me; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://wa.me; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me"
+    
+    # Permissions Policy (remove unnecessary browser features)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+    
+    # HSTS (HTTP Strict Transport Security) - Enforce HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# ============================================
+# 3. FILE ACCESS PROTECTION
+# ============================================
+
+# Deny access to sensitive files
+<FilesMatch "\.(env|txt|config|json|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Deny access to .git directory
+<DirectoryMatch "^/\.git">
+    Order allow,deny
+    Deny from all
+</DirectoryMatch>
+
+# ============================================
+# 4. DISABLE DIRECTORY LISTING
+# ============================================
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# ============================================
+# 5. PREVENT EXECUTION OF SCRIPTS IN UPLOADS
+# ============================================
+<Directory /asset>
+    <FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|asp+)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</Directory>
+
+# ============================================
+# 6. COMPRESSION FOR PERFORMANCE & SECURITY
+# ============================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    AddOutputFilterByType DEFLATE application/xml+rss application/atom+xml image/svg+xml
+</IfModule>
+
+# ============================================
+# 7. BROWSER CACHING
+# ============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    # CSS & JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # HTML (cache control for updates)
+    ExpiresByType text/html "access plus 1 day"
+    
+    # Default
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# ============================================
+# 8. DISABLE UNNECESSARY HTTP METHODS
+# ============================================
+<LimitExcept GET POST HEAD>
+    Order allow,deny
+    Deny from all
+</LimitExcept>

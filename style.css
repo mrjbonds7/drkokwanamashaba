@@ -407,6 +407,13 @@ img {
     font-size: 0.95rem;
 }
 
+.translation {
+    font-size: 0.9rem;
+    color: #555;
+    font-style: italic;
+    margin-top: 0.25rem;
+    line-height: 1.5;
+}
 
 
 .product-button {
@@ -624,6 +631,18 @@ img {
     box-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
 }
 
+/* Form Input Validation Styling */
+.contact-form input.invalid,
+.contact-form textarea.invalid {
+    border-color: #d32f2f;
+    background-color: #ffebee;
+}
+
+.contact-form input.invalid:focus,
+.contact-form textarea.invalid:focus {
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.3);
+}
+
 .submit-button {
     background-color: var(--primary-color);
     color: var(--white);
@@ -662,8 +681,17 @@ img {
     background-color: var(--primary-color);
     color: var(--white);
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1rem;
     font-size: 0.95rem;
+}
+
+.footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.footer p {
+    margin: 0.4rem 0;
 }
 
 /* Checkout Section */
