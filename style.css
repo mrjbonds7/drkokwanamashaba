@@ -1003,12 +1003,27 @@ img {
         margin: 1rem 0;
     }
 
+    .hero {
+        padding: 6rem 1.5rem;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
 
-    .subtitle {
-        font-size: 1.2rem;
+    .subtitle,
+    .hero-content .translation {
+        font-size: 1rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-content .translation.show {
+        max-height: 10rem;
+        margin: 0.75rem auto;
     }
 
     .about h2,
