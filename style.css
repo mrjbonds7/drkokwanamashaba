@@ -121,12 +121,14 @@ img {
 
 /* Translation visibility */
 .translation {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
 }
 
-.translation.zulu,
-.translation.sotho {
-    display: none;
+.translation.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Footer */

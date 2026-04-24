@@ -162,7 +162,11 @@ const Language = {
 
     setLanguage(lang) {
         document.querySelectorAll('.translation').forEach(el => {
-            el.style.display = el.classList.contains(lang) ? 'block' : 'none';
+            if (el.classList.contains(lang)) {
+                el.classList.add('show');
+            } else {
+                el.classList.remove('show');
+            }
         });
     }
 };
