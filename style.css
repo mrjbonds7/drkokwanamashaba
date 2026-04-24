@@ -167,6 +167,22 @@ img {
     opacity: 0.95;
 }
 
+.hero-content .translation {
+    font-size: 1.2rem;
+    color: var(--white);
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease, margin 0.5s ease;
+}
+
+.hero-content .translation.show {
+    opacity: 1;
+    max-height: 8rem;
+    margin: 0.75rem auto;
+}
+
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
