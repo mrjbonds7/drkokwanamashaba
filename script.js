@@ -139,7 +139,8 @@ const Products = {
 // =====================================================
 
 const Language = {
-    languages: ['english', 'zulu', 'sotho'],
+    languages: ['none', 'zulu', 'sotho'],
+    labels: ['Translate', 'Zulu', 'Sotho'],
     currentIndex: 0,
 
     init() {
@@ -155,7 +156,7 @@ const Language = {
             this.currentIndex = (this.currentIndex + 1) % this.languages.length;
             const lang = this.languages[this.currentIndex];
             this.setLanguage(lang);
-            button.textContent = `Language: ${lang.charAt(0).toUpperCase() + lang.slice(1)}`;
+            button.textContent = this.labels[this.currentIndex];
         });
     },
 
