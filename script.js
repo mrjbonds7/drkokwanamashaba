@@ -135,6 +135,38 @@ const Products = {
 };
 
 // =====================================================
+// 4. LANGUAGE SELECTION
+// =====================================================
+
+const Language = {
+    languages: ['english', 'zulu', 'sotho'],
+    currentIndex: 0,
+
+    init() {
+        this.setupLanguageToggle();
+        this.setLanguage(this.languages[this.currentIndex]);
+    },
+
+    setupLanguageToggle() {
+        const button = document.getElementById('language-toggle');
+        if (!button) return;
+
+        button.addEventListener('click', () => {
+            this.currentIndex = (this.currentIndex + 1) % this.languages.length;
+            const lang = this.languages[this.currentIndex];
+            this.setLanguage(lang);
+            button.textContent = `Language: ${lang.charAt(0).toUpperCase() + lang.slice(1)}`;
+        });
+    },
+
+    setLanguage(lang) {
+        document.querySelectorAll('.translation').forEach(el => {
+            el.style.display = el.classList.contains(lang) ? 'block' : 'none';
+        });
+    }
+};
+
+// =====================================================
 // 5. SHOPPING CART MANAGEMENT
 // =====================================================
 
@@ -363,6 +395,7 @@ const App = {
         SmoothScroll.init();
         Animations.init();
         Products.init();
+        Language.init();
         Cart.init();
         ContactForm.init();
     }
